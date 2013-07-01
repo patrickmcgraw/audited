@@ -11,5 +11,5 @@ end
 ::ActiveRecord::Base.send :include, Audited::Auditor
 
 Audited.audit_class = Audited::Adapters::ActiveRecord::Audit
-
+require 'rails-observers'
 require 'audited/sweeper'

@@ -1,3 +1,4 @@
+require 'protected_attributes'
 module Audited
   module Audit
     def self.included(klass)
