@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rails', '~> 4.0'
   gem.add_development_dependency 'rspec-rails', '~> 2.0'
   gem.add_development_dependency 'sqlite3', '~> 1.0'
-  gem.add_development_dependency 'protected_attributes'
+  # gem.add_development_dependency 'protected_attributes'
   gem.add_development_dependency 'rails-observers'
 
   gem.files         = `git ls-files`.split($\).reject{|f| f =~ /(lib\/audited\-|adapters|generators)/ }
