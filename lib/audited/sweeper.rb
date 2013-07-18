@@ -4,12 +4,20 @@ module Audited
 
     attr_accessor :controller
 
-    def before(controller)
+    # def before(controller)
+      
+    # end
+
+    # def after(controller)
+      
+    # end
+
+    def around(controller)
       self.controller = controller
       true
-    end
 
-    def after(controller)
+      yield
+
       self.controller = nil
     end
 

@@ -67,10 +67,10 @@ describe Audited::Auditor, :adapter => :mongo_mapper do
 
     it "should set the action to create" do
       user.audits.first.action.should == 'create'
-      Audited.audit_class.creates.sort(:id.asc).last.should == user.audits.first
       user.audits.creates.count.should == 1
       user.audits.updates.count.should == 0
       user.audits.destroys.count.should == 0
+      Audited.audit_class.creates.sort(:created_at.asc).last.should == user.audits.first
     end
 
     it "should store all the audited attributes" do
@@ -110,7 +110,7 @@ describe Audited::Auditor, :adapter => :mongo_mapper do
     it "should set the action to 'update'" do
       @user.update_attributes :name => 'Changed'
       @user.audits.all.last.action.should == 'update'
-      Audited.audit_class.updates.sort(:id.asc).last.should == @user.audits.all.last
+      Audited.audit_class.updates.sort(:created_at.asc).last.should == @user.audits.all.last
       @user.audits.updates.last.should == @user.audits.all.last
     end
 
@@ -143,7 +143,7 @@ describe Audited::Auditor, :adapter => :mongo_mapper do
 
       expect {
         user.update_attribute(:name, 'O.J.   Simpson')
-      }.to_not raise_error(BSON::InvalidDocument)
+      }.to_not raise_error()
 
       change = user.audits.all.last.audited_changes['name']
       change.should be_all{|c| c.is_a?(String) }
@@ -184,7 +184,7 @@ describe Audited::Auditor, :adapter => :mongo_mapper do
       @user.destroy
 
       @user.audits.all.last.action.should == 'destroy'
-      Audited.audit_class.destroys.sort(:id.asc).last.should == @user.audits.all.last
+      Audited.audit_class.destroys.sort(:created_at.asc).last.should == @user.audits.all.last
       @user.audits.destroys.last.should == @user.audits.all.last
     end
 
