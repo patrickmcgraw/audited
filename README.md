@@ -1,4 +1,4 @@
-Audited [![Build Status](https://secure.travis-ci.org/collectiveidea/audited.png)](http://travis-ci.org/collectiveidea/audited) [![Dependency Status](https://gemnasium.com/collectiveidea/audited.png)](https://gemnasium.com/collectiveidea/audited)
+Audited [![Build Status](https://secure.travis-ci.org/patrickmcgraw/audited.png)](http://travis-ci.org/patrickmcgraw/audited)
 =======
 
 **Audited** (previously acts_as_audited) is an ORM extension that logs all changes to your models. Audited also allows you to record who made those changes, save comments and associate models related to the changes. Audited works with Rails 3.
