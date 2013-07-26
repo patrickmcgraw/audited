@@ -9,3 +9,5 @@ Gemfile.lock
 gemfiles/*.lock
 pkg
 tmp/*
+.ruby-version
+.ruby-gemset
